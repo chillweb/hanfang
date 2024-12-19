@@ -1,0 +1,39 @@
+<odoo>
+  <data>
+    <record id="res_custom_view_tree" model="ir.ui.view">
+        <field name="name">res.custom.view.tree</field>
+        <field name="model">res.custom</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="form_name"/>
+                <field name="form_type"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="res_custom_view_form" model="ir.ui.view">
+        <field name="name">res.custom.view.form</field>
+        <field name="model">res.custom</field>
+        <field name="arch" type="xml">
+            <form>
+                <label for="form_name"/>
+                <field name="form_name"/>
+                <label for="form_type"/>
+                <field name="form_type"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="res_custom_action" model="ir.actions.act_window">
+            <field name="name">Custom Form</field>
+            <field name="res_model">res.custom</field>  
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="res_custom_view_tree"/> 
+        </record>
+
+        <!-- <menuitem id="menu_res_custom" 
+                  name="Custom Form" 
+                  parent="mrp.menu_mrp_configuration" 
+                  action="res_custom_action" /> -->
+  </data>
+</odoo>

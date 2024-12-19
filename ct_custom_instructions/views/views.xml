@@ -1,0 +1,46 @@
+<odoo>
+  <data>
+    <!-- <record id="action_create_custom_test_type" model="ir.actions.server">
+        <field name="name">Create Custom Test Type</field>
+        <field name="model_id" ref="model_quality_point_test_type"/> 
+        <field name="state">code</field>
+        <field name="code">
+            model.create_custom_test_type()
+        </field>
+    </record> -->
+
+    <record id="ir_cron_create_custom_test_type" model="ir.cron">
+            <field name="name">Create Custom Test Type</field>
+            <field name="model_id" ref="model_quality_point_test_type"/> <!-- Model to run the method -->
+            <field name="state">code</field>
+            <field name="code">model.create_custom_test_type()</field> <!-- Method to execute -->
+            <field name="interval_number">1</field> <!-- Frequency: Every 1 -->
+            <field name="interval_type">days</field> <!-- Interval Type: Days -->
+            <field name="user_id" ref="base.user_root"/> <!-- User executing the cron job -->
+            <field name="active">True</field> <!-- Set the cron job to active -->
+        </record>
+
+
+    <record id="quality_point_view_form_inherited" model="ir.ui.view">
+      <field name="name">quality.point.view.form.inherited</field>
+      <field name="model">quality.point</field>
+      <field name="inherit_id" ref="quality.quality_point_view_form"/>
+      <field name="arch" type="xml">
+          <field name="test_type_id" position="replace">
+            <field string="Type" name="test_type_id"/>
+          </field>
+
+          <xpath expr="//field[@name='test_type_id']" position='after'>
+            <!-- <field name="form_name_id" invisible="test_type != 'Custom record'" context="{'default_form_type': test_type_id.name}"/>  -->
+            <field name="api_data" invisible="test_type != 'api'"/>
+            <field name="api_data_attachment" invisible="test_type != 'api'"/>
+            <field name="total_units_manuf" invisible="test_type != 'calculus'"/>
+            <field name="three_percent_of_total" invisible="test_type != 'calculus'"/>
+            <field name="checking_result" invisible="test_type != 'calculus'"/>
+            <field name="worker_id" invisible="test_type != 'register_consumed_materials'" options="{'no_create': True}"/>
+            <field name="approver_id" invisible="test_type != 'register_consumed_materials'" options="{'no_create': True}"/>
+          </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

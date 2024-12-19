@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_custom,ct_custom_instructions.res_custom,model_res_custom,,1,1,1,1
