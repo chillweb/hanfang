@@ -27,7 +27,7 @@
                     </span>
                 </div>
                 <div class="mb-3">
-                    <label for="three_percent_of_total">3 percent of total manufacturing units:</label>
+                    <label for="three_percent_of_total" class="me-3">3 percent of total manufacturing units:</label>
                     <span name="three_percent_of_total" class="o_field_widget text-end pe-2">
                         <FloatField t-props="threePercentOfTotal" readonly="recordData.test_type === 'calculus'"/>
                     </span>   
