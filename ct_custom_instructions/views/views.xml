@@ -42,5 +42,19 @@
           </xpath>
       </field>
     </record>
+
+    <record id="quality_check_view_form_inherited" model="ir.ui.view">
+      <field name="name">quality.check.view.form.inherited</field>
+      <field name="model">quality.check</field>
+      <field name="inherit_id" ref="mrp_workorder.quality_check_workorder_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='product_id']" position='after'>
+            <field name="approver_id"/>
+            <field name="worker_id"/>
+          </xpath>
+      </field>
+    </record>
+
+    
   </data>
 </odoo>

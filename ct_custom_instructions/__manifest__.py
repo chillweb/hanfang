@@ -21,7 +21,7 @@
     'depends': [
         'web_enterprise',  
         'mrp' ,      
-        'web_mobile' ,'quality'],
+        'web_mobile' ,'quality','quality_control'],
 
     # always loaded
     'data': [
